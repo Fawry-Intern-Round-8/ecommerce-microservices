@@ -12,7 +12,7 @@ git submodule update --init --recursive
 To make sure all submodules are up to date with their latest commits from their respective repositories:
 
 ```bash
-git submodule update --recursive --remote
+git submodule update --recursive --merge --remote
 ```
 This pulls the latest changes from each submodule’s remote branch (usually `main`).
 
