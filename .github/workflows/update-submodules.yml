@@ -1,34 +1,36 @@
 name: Auto Update Submodules
 
 on:
-  repository_dispatch:
-    types:
-      - update-submodule
+  schedule:
+    - cron: '0 * * * *'
+  workflow_dispatch:
+
 jobs:
-  update-submodule:
+  update-submodules:
     runs-on: ubuntu-latest
-    permissions:
-      contents: write
-      pull-requests: write
+
     steps:
-      - name: Checkout repository
+      - name: Checkout main repo
         uses: actions/checkout@v4
         with:
-          token: ${{ secrets.PAT }}
           submodules: recursive
-      - name: Authorize Git
+          token: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Set up Git
         run: |
-          git config --global user.email "$GITHUB_ACTOR@users.noreply.github.com"
-          git config --global user.name "$GITHUB_ACTOR"
-      - name: Update submodule
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+
+      - name: Update submodules
         run: |
-          git submodule update  --init --recursive --remote -f
-        env:
-          GITHUB_TOKEN: ${{ secrets.PAT }}
-      - name: Commit changes
+          git submodule update --remote --merge
+
+      - name: Commit and push changes
         run: |
-          git add writings
-          git commit -m "Update submodule to latest commit"
-          git push origin main
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          if [[ -n $(git status --porcelain) ]]; then
+            git add .
+            git commit -m "Auto-update submodules to latest main"
+            git push
+          else
+            echo "No changes to commit"
+          fi
