@@ -1,28 +1,21 @@
 [submodule "coupon-service"]
 	path = coupon-service
 	url = https://github.com/Fawry-Intern-Round-8/Coupon-API
-	branch = main
 [submodule "bank-service"]
 	path = bank-service
 	url = https://github.com/Fawry-Intern-Round-8/Bank-API
-	branch = main
 [submodule "eureka-service"]
 	path = eureka-service
 	url = https://github.com/Fawry-Intern-Round-8/eureka-server
-	branch = main
 [submodule "store-service"]
 	path = store-service
 	url = https://github.com/Fawry-Intern-Round-8/Store-API
-	branch = main
 [submodule "order-service"]
 	path = order-service
 	url = https://github.com/Fawry-Intern-Round-8/Order-API
-	branch = main
 [submodule "user-service"]
 	path = user-service
 	url = https://github.com/Fawry-Intern-Round-8/User-API
-	branch = main
 [submodule "product-service"]
 	path = product-service
 	url = https://github.com/Fawry-Intern-Round-8/Product-API
-	branch = main
