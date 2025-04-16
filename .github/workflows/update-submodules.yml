@@ -31,7 +31,7 @@ jobs:
         run: |
           if [[ -n $(git status --porcelain) ]]; then
             git add .
-            git commit -m "Auto-update submodules to latest main"
+            git commit -m "Sync submodules"
             git push
           else
             echo "No changes to commit"
