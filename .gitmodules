@@ -8,7 +8,7 @@
 	path = eureka-service
 	url = https://github.com/Fawry-Intern-Round-8/eureka-server
 [submodule "store-service"]
-	path = Store-service
+	path = store-service
 	url = https://github.com/Fawry-Intern-Round-8/Store-API
 [submodule "order-service"]
 	path = order-service
