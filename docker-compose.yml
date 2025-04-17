@@ -12,18 +12,113 @@ services:
     networks:
       - microservices-network
 
-  coupon-service:
+#  eureka-service:
+#    build:
+#      context: ./eureka-service
+#      dockerfile: Dockerfile
+#    container_name: eureka-service
+#    ports:
+#      - "8761:8761"
+#    networks:
+#      - microservices-network
+#
+#  bank-service:
+#    build:
+#      context: ./bank-service
+#      dockerfile: Dockerfile
+#    container_name: bank-service
+#    ports:
+#      - "8081:8081"
+#    environment:
+#      - SPRING_DATASOURCE_URL=jdbc:postgresql://postgres:5432/bank
+#      - SPRING_DATASOURCE_USERNAME=postgres
+#      - SPRING_DATASOURCE_PASSWORD=postgres
+#      - SERVER_PORT=8081
+#    depends_on:
+#      - postgres
+#    networks:
+#      - microservices-network
+#
+#  coupon-service:
+#    build:
+#      context: ./coupon-service
+#      dockerfile: Dockerfile
+#    container_name: coupon-service
+#    ports:
+#      - "8082:8082"
+#    environment:
+#      - SPRING_DATASOURCE_URL=jdbc:postgresql://postgres:5432/coupon
+#      - SPRING_DATASOURCE_USERNAME=postgres
+#      - SPRING_DATASOURCE_PASSWORD=postgres
+#      - SERVER_PORT=8082
+#    depends_on:
+#      - postgres
+#    networks:
+#      - microservices-network
+#
+#  order-service:
+#    build:
+#      context: ./order-service
+#      dockerfile: Dockerfile
+#    container_name: order-service
+#    ports:
+#      - "8083:8083"
+#    environment:
+#      - SPRING_DATASOURCE_URL=jdbc:postgresql://postgres:5432/order
+#      - SPRING_DATASOURCE_USERNAME=postgres
+#      - SPRING_DATASOURCE_PASSWORD=postgres
+#      - SERVER_PORT=8083
+#    depends_on:
+#      - postgres
+#    networks:
+#      - microservices-network
+
+#  product-service:
+#    build:
+#      context: ./product-service
+#      dockerfile: Dockerfile
+#    container_name: product-service
+#    ports:
+#      - "8084:8084"
+#    environment:
+#      - SPRING_DATASOURCE_URL=jdbc:postgresql://postgres:5432/product
+#      - SPRING_DATASOURCE_USERNAME=postgres
+#      - SPRING_DATASOURCE_PASSWORD=postgres
+#      - SERVER_PORT=8084
+#    depends_on:
+#      - postgres
+#    networks:
+#      - microservices-network
+
+#  store-service:
+#    build:
+#      context: ./store-service
+#      dockerfile: Dockerfile
+#    container_name: store-service
+#    ports:
+#      - "8085:8085"
+#    environment:
+#      - SPRING_DATASOURCE_URL=jdbc:postgresql://postgres:5432/store
+#      - SPRING_DATASOURCE_USERNAME=postgres
+#      - SPRING_DATASOURCE_PASSWORD=postgres
+#      - SERVER_PORT=8085
+#    depends_on:
+#      - postgres
+#    networks:
+#      - microservices-network
+
+  user-service:
     build:
-      context: ./coupon-service
+      context: ./user-service
       dockerfile: Dockerfile
-    container_name: coupon-service
+    container_name: user-service
     ports:
-      - "8082:8082"
+      - "8086:8086"
     environment:
-      - SPRING_DATASOURCE_URL=jdbc:postgresql://postgres:5432/coupon
+      - SPRING_DATASOURCE_URL=jdbc:postgresql://postgres:5432/user
       - SPRING_DATASOURCE_USERNAME=postgres
       - SPRING_DATASOURCE_PASSWORD=postgres
-      - SERVER_PORT=8082
+      - SERVER_PORT=8086
     depends_on:
       - postgres
     networks:
